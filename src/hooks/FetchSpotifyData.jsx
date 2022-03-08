@@ -40,7 +40,9 @@ const FetchSpotifyData = (pageNum) => {
   useEffect(() => {
 
     let getAlbums = async () => {
-      let albums = await axios.get(nextQuery ? nextQuery : SPOTIFY_ALBUMS_API, {
+      let albums = await axios({
+            method: 'get',
+            url: nextQuery ? nextQuery : SPOTIFY_ALBUMS_API,
             params: {
               limit: 10,
               offset: 0

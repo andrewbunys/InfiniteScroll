@@ -1,20 +1,22 @@
 import React from 'react';
 import styles from '../styles/Album.module.scss';
 
-const Album = ({ indexKey, artist, album, image, date, extUrl, domRef }) => {
+const Album = ({ artist, album, image, date, extUrl, domRef }) => {
     /*
     Will rerender the current window to google's website if any of the DOM elements with an ID of "Album" are clicked.
     Else, it will open a new tab that redirects to the Spotify album that was clicked on using the "See On Spotify" button, and then focus that tab.
    */
-  const handleClick = (e) => {
-
-    e.stopPropagation()
-    window.open(extUrl, '_blank').focus();
+    const handleClick = (e) => {
+      if (e.target.id === "Album") {
+        window.location.href = 'http://www.google.com';
+      } else {
+      e.stopPropagation()
+      window.open(extUrl, '_blank').focus();
+      }
     }
-  }
 
   return (
-    <div className={styles.Album} id="Album"  key={indexKey} ref={domRef}  >
+    <div className={styles.Album} id="Album" onClick={handleClick} ref={domRef}  >
       <div className={styles.Cover} id="Album">
         <img src={image} alt="Album Cover Art" />
       </div>

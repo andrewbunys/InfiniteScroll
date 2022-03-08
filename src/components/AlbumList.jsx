@@ -39,8 +39,7 @@ const AlbumList = () => {
           const isLast = albums.length === (index + 1)
 
           const props = {
-
-            indexKey: album.id,
+            key: (albums.length - 1) + index,
             artist: album.artists[0].name,
             album: album.name,
             image: album.images[1].url,
