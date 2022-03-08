@@ -7,16 +7,14 @@ const Album = ({ indexKey, artist, album, image, date, extUrl, domRef }) => {
     Else, it will open a new tab that redirects to the Spotify album that was clicked on using the "See On Spotify" button, and then focus that tab.
    */
   const handleClick = (e) => {
-    if (e.target.id === "Album") {
-      window.location.href = 'http://www.google.com';
-    } else {
+
     e.stopPropagation()
     window.open(extUrl, '_blank').focus();
     }
   }
 
   return (
-    <div className={styles.Album} id="Album" onClick={handleClick} key={indexKey} ref={domRef}  >
+    <div className={styles.Album} id="Album"  key={indexKey} ref={domRef}  >
       <div className={styles.Cover} id="Album">
         <img src={image} alt="Album Cover Art" />
       </div>
@@ -30,7 +28,7 @@ const Album = ({ indexKey, artist, album, image, date, extUrl, domRef }) => {
         <p>
           Album release date: {date}
         </p>
-        <button id="button" onClick={handleClick}>See On Spotify</button>
+        <button id="button" >See On Spotify</button>
       </div>
     </div>
   )

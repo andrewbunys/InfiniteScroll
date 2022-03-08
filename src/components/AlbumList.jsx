@@ -11,7 +11,9 @@ const AlbumList = () => {
     moreData,
     loading
   } = FetchSpotifyData(pageNum)
-
+  const handleClick = () => {
+    window.location.href = 'http://www.google.com';
+  }
   const observer = useRef()
     /*
     Whenever the element with the lastAlbumRef ref is created, it will invoke the function inside the useCallback function.
@@ -37,6 +39,7 @@ const AlbumList = () => {
           const isLast = albums.length === (index + 1)
 
           const props = {
+
             indexKey: album.id,
             artist: album.artists[0].name,
             album: album.name,
@@ -51,7 +54,7 @@ const AlbumList = () => {
 
           return (
 
-            <Album
+            <Album onClick={handleClick}
               {...props}
             />
 
